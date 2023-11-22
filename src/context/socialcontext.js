@@ -56,7 +56,7 @@ export const SocialProvider = ({ children }) => {
     },
   ]);
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   //handle login , signup, logout
   const handleLogin = (user) => {
