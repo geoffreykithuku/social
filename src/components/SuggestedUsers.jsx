@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SocialContext } from "../context/socialcontext";
-
+import img_url from "./Profile.png";
 const SuggestedUsers = ({ users }) => {
   const { handleFollow } = useContext(SocialContext);
 
@@ -13,7 +13,7 @@ const SuggestedUsers = ({ users }) => {
             key={user.id}
             className="text-gray-300 bg-gray-800 py-3 px-5 rounded my-2 flex items-center justify-start gap-5"
           >
-            <img src="./profile.webp" alt="" className="rounded-full w-5 h-5" />
+            <img src={img_url} alt="" className="rounded-full w-5 h-5" />
             {user.name}
             <button
               onClick={() => handleFollow(user.id)}
