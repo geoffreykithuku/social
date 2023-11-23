@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Elewa Social Network
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Database Schema
 
-## Available Scripts
+## Users Table
+Stores information about registered users.
 
-In the project directory, you can run:
+| Column Name | Data Type    |
+|-------------|--------------|
+| user_id     | INTEGER (PK) |
+| username    | VARCHAR(50)  |
+| email       | VARCHAR(100) |
+| password    | VARCHAR(255) |
+| zip_code    | VARCHAR(20)  |
+| is_premium  | BOOLEAN      |
 
-### `npm start`
+## Posts Table
+Stores information about posts from the JSON placeholder API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Column Name | Data Type    |
+|-------------|--------------|
+| post_id     | INTEGER (PK) |
+| user_id     | INTEGER (FK) |
+| title       | VARCHAR(255) |
+| body        | TEXT         |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Follows Table
+Stores information about users following other users.
 
-### `npm test`
+| Column Name  | Data Type    |
+|--------------|--------------|
+| follow_id    | INTEGER (PK) |
+| follower_id  | INTEGER (FK) |
+| following_id | INTEGER (FK) |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## BlockedPosts Table
+Stores information about posts blocked by users.
 
-### `npm run build`
+| Column Name | Data Type    |
+|-------------|--------------|
+| block_id    | INTEGER (PK) |
+| user_id     | INTEGER (FK) |
+| post_id     | INTEGER (FK) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Relationship Descriptions
+- The Users table stores information about registered users, including whether they are premium users.
+- The Posts table stores posts fetched from the JSON placeholder API, associating each post with a user.
+- The Follows table establishes a many-to-many relationship between users, allowing one user to follow multiple others.
+- The BlockedPosts table records posts blocked by users, indicating which user blocked which post.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# This work is still in progress. 
